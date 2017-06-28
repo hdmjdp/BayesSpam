@@ -69,7 +69,7 @@ for fileName in testFileList:
     if(p>0.9):
         testResult.setdefault(fileName,1)
     else:
-        testResult.setdefault(fileName,0)
+        testResult.setdefault(fileName,0)#0作为正常邮件的标记
 #计算分类准确率（测试集中文件名低于1000的为正常邮件）
 testAccuracy=spam.calAccuracy(testResult)
 for i,ic in testResult.items():
