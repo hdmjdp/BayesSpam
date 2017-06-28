@@ -62,7 +62,7 @@ for fileName in testFileList:
         spam.get_word_list(line,wordsList,stopList)
     spam.addToDict(wordsList, wordsDict)
     testDict=wordsDict.copy()
-    #通过计算每个文件中p(s|w)来得到对分类影响最大的15个词
+    #通过计算每个文件中p(s|w)来得到对分类影响最大的15个词，计算每一封邮件中分词在正常邮件和垃圾邮件中出现的概率
     wordProbList=spam.getTestWords(testDict, spamDict,normDict,normFilelen,spamFilelen)
     #对每封邮件得到的15个词计算贝叶斯概率  
     p=spam.calBayes(wordProbList, spamDict, normDict)
