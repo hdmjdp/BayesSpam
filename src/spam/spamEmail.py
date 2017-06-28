@@ -40,8 +40,8 @@ class spamEmailBayes:
         for word,num  in testDict.items():
             if word in spamDict.keys() and word in normDict.keys():
                 #该文件中包含词个数
-                pw_s=spamDict[word]/spamFilelen
-                pw_n=normDict[word]/normFilelen
+                pw_s=spamDict[word]/spamFilelen#计算测试邮件中某一个分词在垃圾邮件词典中出现的频率=出现次数/垃圾邮件中词语的总数
+                pw_n=normDict[word]/normFilelen#该词在正常邮件中出现的概率
                 ps_w=pw_s/(pw_s+pw_n) 
                 wordProbList.setdefault(word,ps_w)
             if word in spamDict.keys() and word not in normDict.keys():
